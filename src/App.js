@@ -6,6 +6,7 @@ import ImageGalleryItem from "./components/ImageGalleryItem";
 import Button from "./components/Button";
 import Modal from "./components/Modal";
 import api from "./servises/api";
+import styles from "./components/ImageGalleryItem/ImageGalleryItem.module.css";
 
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
@@ -76,7 +77,11 @@ class App extends React.Component {
 
         <ImageGallery>
           {pictures.map(({ id, webformatURL, largeImageURL }) => (
-            <li key={id} onClick={() => this.onPictureClick(largeImageURL)}>
+            <li
+              key={id}
+              onClick={() => this.onPictureClick(largeImageURL)}
+              className={styles.ImageGalleryItem}
+            >
               <ImageGalleryItem srcWebformat={webformatURL} />
             </li>
           ))}
